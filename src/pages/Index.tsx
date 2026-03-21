@@ -1,16 +1,37 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { lazy, Suspense } from "react";
+import Navigation from "@/components/Navigation";
+import ParticleBackground from "@/components/ParticleBackground";
+import HeroSection from "@/components/sections/HeroSection";
+import CTASection from "@/components/sections/CTASection";
+import ResumeSection from "@/components/sections/ResumeSection";
+import ProjectsSection from "@/components/sections/ProjectsSection";
+import SkillsSection from "@/components/sections/SkillsSection";
+import ContactSection from "@/components/sections/ContactSection";
+import ArticlesSection from "@/components/sections/ArticlesSection";
+import ProfilesSection from "@/components/sections/ProfilesSection";
+import SocialSection from "@/components/sections/SocialSection";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const FloatingScene = lazy(() => import("@/components/FloatingScene"));
+
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="bg-background text-foreground overflow-x-hidden">
+      <ParticleBackground />
+      <Suspense fallback={null}>
+        <FloatingScene />
+      </Suspense>
+      <Navigation />
+      <HeroSection />
+      <CTASection />
+      <ResumeSection />
+      <ProjectsSection />
+      <SkillsSection />
+      <ContactSection />
+      <ArticlesSection />
+      <ProfilesSection />
+      <SocialSection />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
